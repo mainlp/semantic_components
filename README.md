@@ -1,6 +1,9 @@
-[![PyPI - Python](https://img.shields.io/badge/python-v3.8+-blue.svg)]()
-[![PyPI - License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mainlp/semantic_components/blob/main/LICENSE)
 
+
+[![PyPI - Python](https://img.shields.io/badge/python-v3.8+-blue.svg)](https://pypi.org/project/semantic-components/0.1.0/)
+[![PyPI - License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mainlp/semantic_components/blob/main/LICENSE)
+[![PyPI - PyPi](https://img.shields.io/pypi/v/semantic-components)](https://pypi.org/project/semantic-components/0.1.0/)
+[![arXiv](https://img.shields.io/badge/arXiv-TODO-<COLOR>.svg)]()
 
 
 # Semantic Component Analysis: Discovering Patterns in Short Texts Beyond Topics
