@@ -1,0 +1,10 @@
+numpy==1.26.4
+hdbscan==0.8.39
+jieba==0.42.1
+octis==1.14.0
+pandas==2.2.3
+scikit-learn==1.1.0
+sentence-transformers==3.2.0
+torch==2.4.1
+transformers==4.45.2
+umap-learn==0.5.6

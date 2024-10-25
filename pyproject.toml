@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic_components"
+version = "0.1.0"
+description = "Finding semantic components in your neural representations."
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+authors = [
+    { name = "Florian Eichin", email = "feichin@cis.lmu.de" },
+]
+keywords = [
+    "nlp",
+    "clustering",
+    "topic",
+    "modeling",
+    "embeddings",
+]
+
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy>=1.26.4",
+    "hdbscan>=0.8.39",
+    "jieba>=0.42.1",
+    "pandas>=2.2.3",
+    "scikit-learn>=1.1.0",
+    "sentence-transformers>=3.2.0",
+    "torch>=2.4.1",
+    "transformers>=4.45.2",
+    "umap-learn>=0.5.6",
+]
+
+[project.optional-dependencies]
+octis = [
+    "numpy==1.26.4",
+    "scikit-learn==1.1.0",
+    "octis>=1.14.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["semantic_components*"]
+exclude = ["tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+extend-select = ["E501"]
