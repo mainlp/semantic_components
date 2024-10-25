@@ -5,7 +5,7 @@
 
 # Semantic Component Analysis: Discovering Patterns in Short Texts Beyond Topics
 
-<img src="images/tweet_decomposition.png" width="40%" height="40%" align="right" />
+<img src="images/tweet_decomposition.png" width="50%" height="50%" align="right" />
 
 Semantic Component Analysis (SCA) is a powerful tool to analyse *your* text datasets. If you want to find out how it works and why it is the right tool for you, consider reading [our paper]("").
 
