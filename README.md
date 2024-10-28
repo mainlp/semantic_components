@@ -1,13 +1,18 @@
-[![PyPI - Python](https://img.shields.io/badge/python-v3.8+-blue.svg)]()
+
+
+[![PyPI - Python](https://img.shields.io/badge/python-v3.8+-blue.svg)](https://pypi.org/project/semantic-components/0.1.0/)
 [![PyPI - License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/mainlp/semantic_components/blob/main/LICENSE)
-[![arXiv](https://img.shields.io/badge/arXiv-2203.05794-<COLOR>.svg)]()
+[![PyPI - PyPi](https://img.shields.io/pypi/v/semantic-components)](https://pypi.org/project/semantic-components/0.1.0/)
+[![arXiv](https://img.shields.io/badge/arXiv-TODO-<COLOR>.svg)]()
 
 
 # Semantic Component Analysis: Discovering Patterns in Short Texts Beyond Topics
 
-<img src="images/tweet_decomposition.png" width="35%" height="35%" align="right" />
+<img src="images/tweet_decomposition.png" width="50%" height="50%" align="right" />
 
 Semantic Component Analysis (SCA) is a powerful tool to analyse *your* text datasets. If you want to find out how it works and why it is the right tool for you, consider reading [our paper]("").
+
+If you just want to test the method as quickly as possible, continue with the Quick Start section. For everything else, the Manual Installation section should have you covered. If you run into any problems or have suggestions, feel free to create an issue and we will try to adress it in future releases.
 
 ## Quick Start
 
