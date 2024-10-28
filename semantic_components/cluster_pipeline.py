@@ -133,7 +133,7 @@ class ClusterPipeline:
             try:
                 ids = np.array(clustered)
                 probs = self.cluster_algorithm.probabilities_
-            except Exception as e:
+            except Exception:
                 raise ValueError(
                     "Clustering algorithm did not return expected output."
                 )

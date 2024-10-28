@@ -66,3 +66,9 @@ line-length = 120
 
 [tool.ruff.lint]
 extend-select = ["E501"]
+
+[project.urls]
+Documentation = "https://github.com/mainlp/semantic_components"
+Homepage = "https://github.com/mainlp/semantic_components"
+Issues = "https://github.com/mainlp/semantic_components/issues"
+Repository = "https://github.com/mainlp/semantic_components"
