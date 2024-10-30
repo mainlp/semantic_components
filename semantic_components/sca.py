@@ -1,6 +1,3 @@
-import sys
-sys.path.append("../../semantic_components")
-
 from semantic_components.representation import CTFIDFRepresenter, MedoidRepresenter
 import semantic_components.evaluation
 from semantic_components.decomposition import ClusterDecomposer, ResidualDecomposer
@@ -298,10 +295,10 @@ class SCA:
                 lambda x: [self.component_mapping[e] for e in x]
             )
 
-        self.report(
-            "Number of components after merging: {}",
-            len(representations["combined_id"].unique()),
-        )
+            self.report(
+                "Number of components after merging: {}",
+                len(representations["combined_id"].unique()),
+            )
 
         # medoids
         medoid_representer = MedoidRepresenter()
@@ -322,6 +319,23 @@ class SCA:
             for j in representations.index:
                 merged = False
                 if i > j and i != -1 and j != -1 and not merged:
+                    
+                    # apparently, this can happen if you have many small samples
+                    if (representations.loc[i]['representation'] is None 
+                        or representations.loc[j]['representation'] is None):
+                        self.report(f"combine_ids_by_overlap: Skipping {i} and {j} because of None representation")
+                        continue
+
+                    if (type(representations.loc[i]['representation']) is not list 
+                        or type(representations.loc[j]['representation']) is not list):
+                        self.report(f"combine_ids_by_overlap: Skipping {i} and {j} because of non-list representation")
+                        continue
+
+                    if (len(representations.loc[i]['representation']) == 0 or
+                         len(representations.loc[j]['representation']) == 0):
+                        self.report(f"combine_ids_by_overlap: Skipping {i} and {j} because of empty representation")
+                        continue
+
                     overlap = (
                         len(
                             set(
