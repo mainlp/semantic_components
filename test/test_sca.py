@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # from cluster_pipeline import CTFIDFInterface
-from semantic_components import SCA
+from semantic_components.sca import SCA
 
 
 class ToyHDBSCAN:

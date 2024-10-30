@@ -1,8 +1,8 @@
 import unittest
 import pandas as pd
 from semantic_components.cluster_pipeline import ClusterPipeline
-from semantic_components.cluster_pipeline import ClusterDecomposer
-from semantic_components.cluster_pipeline import ResidualDecomposer
+from semantic_components.decomposition import ClusterDecomposer
+from semantic_components.decomposition import ResidualDecomposer
 import numpy as np
 
 # from evaluation import CTFIDFInterface
