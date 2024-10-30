@@ -130,9 +130,7 @@ class TestSCA(unittest.TestCase):
         scores, residuals, ids = sca.fit_transform(
             self.documents, self.embeddings
         )
-        scores_t, residuals_t, ids_t = sca.transform(
-            self.documents, self.embeddings
-        )
+        scores_t, residuals_t, ids_t = sca.transform(self.embeddings)
 
         print("Scores:", scores, scores_t)
 
