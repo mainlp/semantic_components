@@ -115,7 +115,7 @@ sca = SCA(tokenizer=custom_tokenizer, stopwords_path=custom_stopwords_path)
 scores, residuals, ids = sca.fit(documents, embeddings)
 ```
 
-You can look at the implementation of `GenericTokenizer` for a minimal example of what your custom tokenizer should do (you only need to implement `tokenize` and `__call__`). The stopwords are passed as a path to a stopwords where each line is interpreted as a single stopword. The representer will ignore these words when calculating the token representations. Passing either of these arguments will overwrite the respective standard choices inferred by the `language` argument (which currently only supports Chinese and English, though the latter generalizes to other languages where tokens are separated by whitespace).
+You can look at the implementation of `GenericTokenizer` for a minimal example of what your custom tokenizer should do (you only need to implement `tokenize` and `__call__`). The stopwords are passed as a path to a stopwords file where each line is interpreted as a single stopword. The representer will ignore these words when calculating the token representations. Passing either of these arguments will overwrite the respective standard choices inferred by the `language` argument (which currently only supports Chinese and English, though the latter generalizes to other languages where tokens are separated by whitespace).
 
 ## AI Usage Disclaimer
 
