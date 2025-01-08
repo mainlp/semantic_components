@@ -4,6 +4,7 @@ import numpy as np
 
 # from cluster_pipeline import CTFIDFInterface
 from semantic_components.sca import SCA
+from semantic_components.representation import GenericTokenizer
 
 
 class ToyHDBSCAN:
@@ -196,3 +197,20 @@ class TestSCA(unittest.TestCase):
         )
 
         sca.fit(self.documents, self.embeddings)
+
+    def test_custom_tokenizer(self):
+        tokenizer = GenericTokenizer()
+        sca = SCA(
+            dim_reduction_algorithm=self.dim_reduction,
+            cluster_algorithm=self.clustering_algorithm,
+            normalize_components=True,
+            tokenizer=tokenizer,
+            language="zh",
+            mu=0.5,
+            termination_crit="new_components",
+            verbose=True,
+        )
+
+        sca.fit(self.documents, self.embeddings)
+
+

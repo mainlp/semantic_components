@@ -81,12 +81,17 @@ class SCA:
     language : str, optional
         The language. Default is "english". For the languages we discuss in the paper, this influences the tokenizer and
           the stopword list for the representation.
+    
+    tokenizer : optional
+        Pass a custom tokenizer. The tokenizer should implement a `tokenize` and `__call__` function. See
+        `semantic_components.representation.GenericTokenizer` for a minimal example. Default is None.
 
     evaluation : bool, optional
         Whether to evaluate the model. Default is False.
 
     stopwords_path : str, optional
-        The path to the stopwords file. Default is None.
+        The path to the stopwords file. Default is None, which will use the standard stopwords for the specified 
+        language.
 
     verbose : bool, optional
         Whether to print the progress. Default is False.
@@ -127,6 +132,7 @@ class SCA:
         n_history=2,
         max_iterations=10,
         language="english",
+        tokenizer=None,
         evaluation=False,
         stopwords_path=None,
         verbose=False,
@@ -152,6 +158,7 @@ class SCA:
         self.n_history = n_history
         self.max_iterations = max_iterations
         self.language = language
+        self.tokenizer = tokenizer
         self.stopwords_path = stopwords_path
         self.verbose = verbose
         self.logging = logging
@@ -169,6 +176,14 @@ class SCA:
     def fit(self, documents, embeddings):
         """
         Fit the SCA model.
+
+        Parameters
+        ----------
+        documents : pd.DataFrame
+            The documents to fit the model on.
+
+        embeddings : np.array
+            The embeddings to fit the model on.
         """
         residuals, scores, ids = self.decompose(documents, embeddings)
 
@@ -263,6 +278,7 @@ class SCA:
 
         ctfidf_representer = CTFIDFRepresenter(
             language=self.language,
+            tokenizer=self.tokenizer,
             stopwords_path=self.stopwords_path,
             verbose=self.verbose,
             log=self.log,

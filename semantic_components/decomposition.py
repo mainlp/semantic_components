@@ -508,6 +508,14 @@ class ClusterDecomposer(Decomposer):
         """
         Get the representation of a component.
         """
+        if not self.component_vectors:
+            print("ClusterDecomposer: No components have been fitted.")
+            return None
+        
+        if i >= len(self.component_vectors):
+            print("ClusterDecomposer: Component index out of bounds.")
+            return None
+        
         return self.component_vectors[i]
 
 

@@ -97,6 +97,8 @@ class CTFIDFRepresenter:
         self.log = lambda x: None if log is None else log(x)
         self.n_grams = n_grams
 
+        self.token_pattern = r"\b..+\b"
+
         if self.stopwords is None:
             self.stopwords = self.load_stopwords(stopwords_path)
 
@@ -108,7 +110,6 @@ class CTFIDFRepresenter:
                 self.token_pattern = r"(?u)\b\w\w+\b"
                 self.tokenizer = EnglishTokenizer(stopwords=self.stopwords)
             else:
-                self.token_pattern = r"\b..+\b"
                 self.tokenizer = GenericTokenizer(stopwords=self.stopwords)
 
         self.ctfidf_model = None
@@ -716,5 +717,4 @@ class GenericTokenizer:
 
     def __call__(self, text):
         return self.tokenize(text)
-
 

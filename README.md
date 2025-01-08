@@ -97,6 +97,26 @@ Besides, we publish the Chinese News dataset, which we acquired to the Twitter A
 
 The current version of the Hausa Tweet dataset is available at the [NaijaSenti repository](https://github.com/hausanlp/NaijaSenti/blob/main/sections/unlabeled_twitter_corpus.md).
 
+## Support of Other Languages
+
+We wanted to make `SCA` as adaptable as possible to use-cases in other languages. The main parts of the pipeline that do not always generalize across languages are the base embedding model as well as the tokenizer and stopwords-list used to compute the c-TF-IDF representations. Since the embeddings are calculated outside of the `SCA` class, you can use any method that will output vector-valued embeddings. Just make sure to pass them as `numpy.array` or equivalent.
+
+For the other parts, you can pass custom versions when instantiating `SCA`:
+
+```python
+from semantic_components.sca import SCA
+from semantic_components.representation import GenericTokenizer
+
+custom_tokenizer = GenericTokenizer()
+custom_stopwords_path = "path/to/stopwords.txt"
+
+# fit sca model to data
+sca = SCA(tokenizer=custom_tokenizer, stopwords_path=custom_stopwords_path)
+scores, residuals, ids = sca.fit(documents, embeddings)
+```
+
+You can look at the implementation of `GenericTokenizer` for a minimal example of what your custom tokenizer should do (you only need to implement `tokenize` and `__call__`). The stopwords are passed as a path to a stopwords where each line is interpreted as a single stopword. The representer will ignore these words when calculating the token representations. Passing either of these arguments will overwrite the respective standard choices inferred by the `language` argument (which currently only supports Chinese and English, though the latter generalizes to other languages where tokens are separated by whitespace).
+
 ## AI Usage Disclaimer
 
 The code in this repository has been written with the support of code completions of an AI coding assistant, namely GitHub Copilot. Completions were mostly single lines up to a few lines of code and were always checked carefully to ensure their functionality and safety. Furthermore, we did our best to avoid accepting code completions that would be incompatible with the license of our code or could be regarded as plagiarism.
