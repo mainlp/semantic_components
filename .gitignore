@@ -9,9 +9,11 @@ data/*
 embeddings*
 internal/
 .vscode/
+*internal*
 
 # C extensions
 *.so
+
 
 # Distribution / packaging
 .Python
